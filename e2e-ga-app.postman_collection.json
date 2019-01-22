@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "535007b6-1b71-4363-8f70-1dd631c8331f",
+		"name": "e2e-ga-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test call",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fede346b-7ebd-4c74-bfd2-470b759c1419",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(404); });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
