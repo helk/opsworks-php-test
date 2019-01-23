@@ -20,17 +20,19 @@
         echo "hello";
     }
 
-    // function opsworks() {
-    //     $hasOWDB = false;
-    //     if (file_exists(dirname(__FILE__) . "/opsworks.php")){
-    //         require_once(dirname(__FILE__) . "/opsworks.php");
-    //         $opsWorks = new OpsWorks();
-    //         $db = $opsWorks->db;
-    //         if ($db->host){
-    //             $hasOWDB = true;
-    //         }
-    //     }        
-    // }
+    function opsworks() {
+        $hasOWDB = false;
+        if (file_exists(dirname(__FILE__) . "/opsworks.php")){
+            require_once(dirname(__FILE__) . "/opsworks.php");
+            $opsWorks = new OpsWorks();
+            $db = $opsWorks->db;
+            if ($db->host){
+                $hasOWDB = true;
+            }
+        }        
+    }
+
+    opsworks();
 
     // function connectDB() {
     //     try {
