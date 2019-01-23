@@ -22,11 +22,14 @@
 
     function opsworks() {
         $hasOWDB = false;
+        echo "Hello2 ";
         if (file_exists(dirname(__FILE__) . "/opsworks.php")){
+            echo "Hello3 ";
             require_once(dirname(__FILE__) . "/opsworks.php");
             $opsWorks = new OpsWorks();
             $db = $opsWorks->db;
             if ($db->host){
+                echo $db->host." ";
                 $hasOWDB = true;
             }
         }        
