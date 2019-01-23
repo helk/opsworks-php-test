@@ -16,40 +16,40 @@
 
 <?php
 
-    // function connectDB() {
-    //     try {
+    function connectDB() {
+        try {
 
-    //         $host = getenv("DB_HOST");
-    //         $dbName = getenv("DB_NAME");
-    //         $dbUser = getenv("DB_USERNAME");
-    //         $dbPassword = getenv("DB_PASSWORD");
+            $host = getenv("DB_HOST");
+            $dbName = getenv("DB_NAME");
+            $dbUser = getenv("DB_USERNAME");
+            $dbPassword = getenv("DB_PASSWORD");
 
-    //         $dbh = new PDO("mysql:host=$dBName;port=3306;dbname=$dbName", $dbUser, $dbPassword,
-    //             array( PDO::ATTR_PERSISTENT => false)
-    //         );
+            $dbh = new PDO("mysql:host=$dBName;port=3306;dbname=$dbName", $dbUser, $dbPassword,
+                array( PDO::ATTR_PERSISTENT => false)
+            );
 
-    //     } catch (PDOException $e) {
-    //         print "Error!: " . $e->getMessage() . "<br/>";
-    //         die();
-    //     }
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
 
-    //     return $dbh;
-    // }
+        return $dbh;
+    }
 
-    // function printUsers() {
-    //     $pdo = connectDB();
-    //     $stmt = $pdo->prepare("select * from user");
-    //     $stmt->execute();
-    //     while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
-    //         echo "email: ".$rs->email."<br />";
-    //     }
-    // }
+    function printUsers() {
+        $pdo = connectDB();
+        $stmt = $pdo->prepare("select * from user");
+        $stmt->execute();
+        while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
+            echo "email: ".$rs->email."<br />";
+        }
+    }
 
-    // function addUser($email) {
-    //     $pdo = connectDB();
-    //     $sql = "INSERT INTO user (email) VALUES (?)";
-    //     $stmt= $pdo->prepare($sql);
-    //     $stmt->execute([$email]);
-    // }
+    function addUser($email) {
+        $pdo = connectDB();
+        $sql = "INSERT INTO user (email) VALUES (?)";
+        $stmt= $pdo->prepare($sql);
+        $stmt->execute([$email]);
+    }
 
 ?>
