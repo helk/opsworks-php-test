@@ -1,78 +1,33 @@
 <?php
+    require_once(dirname(__FILE__) . "/db.php");
 
-    function test() {
-        echo "hello";
+    if(isset($_POST['Submit'])) {
+        $email = $_REQUEST['email'];
+
+        addUser($email);
     }
-
-    function getOpsworksDBConfig() {
-        $db = NULL;
-        if (file_exists(dirname(__FILE__) . "/opsworks.php")){
-            require_once(dirname(__FILE__) . "/opsworks.php");
-            $opsWorks = new OpsWorks();
-            $db = $opsWorks->db;
-        }      
-        return $db;  
-    }
-
-    function connectDB() {
-        $pdo = NULL;
-        try {
-
-            $db = getOpsworksDBConfig();
-
-            if(!$db) {
-                die("no db config");
-            }
-
-            $dbHost = $db->host;
-            $dbName = $db->database;
-            $dbUser = $db->username;
-            $dbPassword = $db->password;
-
-            $pdo = new PDO("mysql:host=$dbHost;port=3306;dbname=$dbName",
-                $dbUser,
-                $dbPassword,
-                array( PDO::ATTR_PERSISTENT => false)
-            );
-
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            die();
-        }
-
-        return $pdo;
-    }
-
-    function printUsers() {
-        $pdo = connectDB();
-        $stmt = $pdo->prepare("select * from user");
-        $stmt->execute();
-        while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
-            echo "email: ".$rs->email."<br />";
-        }
-    }
-
-    // function addUser($email) {
-    //     $pdo = connectDB();
-    //     $sql = "INSERT INTO user (email) VALUES (?)";
-    //     $stmt= $pdo->prepare($sql);
-    //     $stmt->execute([$email]);
-    // }
-
 ?>
 
 <html>
 <style>
     body {
-        background: red;
+        background: green;
     }
 </style>
 <body>
 <h1>OpsWorks PHP App</h1>
 <div>
+
     <?php 
         printUsers();
     ?>
+
+    <form action=""  method="POST">
+        <label for="name" id="email">Email</label>
+        <input type="text" name="email" id="email" />
+
+        <input type="submit" name="Submit" value="send" />
+    </form>
 </div>
 </body>
 </html>
