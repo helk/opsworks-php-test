@@ -52,7 +52,7 @@
         $pdo = connectDB();
         $sql = "INSERT INTO user (email) VALUES (?)";
         $stmt= $pdo->prepare($sql);
-        $stmt->execute([$email]);
+        $stmt->execute(array($email));
     }
 
 ?>
