@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - zip -r worker.zip ./app/worker/ ./.ebextensions/ ./cron.yaml
+
+artifacts:
+  files:
+    - worker.zip
