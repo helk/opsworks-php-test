@@ -6,7 +6,15 @@
             require_once(dirname(__FILE__) . "/opsworks.php");
             $opsWorks = new OpsWorks();
             $db = $opsWorks->db;
-        }      
+        }
+        else {
+            $db = (object) array(
+                "host" => getenv("DB_HOST"),
+                "database" => getenv("DB_NAME"),
+                "username" => getenv("DB_USERNAME"),
+                "password" => getenv("DB_PASSWORD"),
+            );
+        }   
         return $db;  
     }
 
