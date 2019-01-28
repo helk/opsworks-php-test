@@ -1,9 +1,13 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - composer install -d app
+      
   build:
     commands:
-      - zip -r worker.zip ./app/worker/ ./.ebextensions/ ./cron.yaml
+      - zip -r worker.zip ./app/worker/ ./app/vendor/ ./.ebextensions/ ./cron.yaml
 
 artifacts:
   files:
