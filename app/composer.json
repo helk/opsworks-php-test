@@ -1,0 +1,24 @@
+{
+    "name": "myApp",
+    "description": "",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Helk",
+            "email": "andreas.helgegren@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+        "type": "composer",
+        "url": "https://www.setasign.com/downloads/"
+        }
+    ],
+    "autoload": {
+    },
+    "require": {
+        "aws/aws-sdk-php": "2.8.22"
+    },
+    "require-dev": {
+    }
+}
