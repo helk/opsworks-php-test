@@ -1,8 +1,8 @@
 <?php
 
-    require_once dirname(__FILE__) . "/app/vendor/autoload.php";
+    require_once dirname(__FILE__) . "/../vendor/autoload.php";
 
-    require_once(dirname(__FILE__) . "/db.php");
+    require_once dirname(__FILE__) . "/../../db.php";
 
     define("SQS_REGION", getenv("SQS_REGION"));
     define("SQS_JOBS_URL", getenv("SQS_JOBS_URL"));
