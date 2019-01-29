@@ -4,11 +4,11 @@ phases:
   pre_build:
     commands:
       - composer install -d app
-      
-  build:
-    commands:
-      - zip -r worker.zip ./app/worker/ ./app/vendor/ ./.ebextensions/ ./db.php ./cron.yaml
 
 artifacts:
   files:
-    - worker.zip
+    - app/worker/
+    - app/vendor/
+    - .ebextensions/
+    - db.php
+    - cron.yaml
