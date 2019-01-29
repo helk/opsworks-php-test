@@ -7,8 +7,8 @@ phases:
 
 artifacts:
   files:
-    - app/worker/
-    - app/vendor/
+    - app/worker/**/*
+    - app/vendor/**/*
     - .ebextensions/
     - db.php
     - cron.yaml
